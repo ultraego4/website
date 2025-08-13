@@ -14,7 +14,7 @@ While researching and learning how cmake works, i was able to also deepen my kno
 
 Ok first of all to understand why cmake is useful lets talk about build systems. A build system is a set of tools used for compiling and linking. It controls the generation of executables. For example the GNU Make on linux.
 
-Now systems could have multiple build systems installed, and also lets say your developing on linux and you would want your application to be cross platform, you would have to specify rules for your build process for the specific build system on the windows platform. Now CMake comes in and lets you do exactly that in a high-level config file and also in a managable format, hence the name cross-platform build system generator. It generates the build system specific build files for the given build systems.
+Now systems could have multiple build systems installed, and also lets say your developing on linux and you would want your application to be cross platform, you would have to specify rules for your build process for the specific build system on the windows platform. Now CMake comes in and lets you do exactly that in a high-level config file and also in a manageable format, hence the name cross-platform build system generator. It generates the build system specific build files for the given build systems.
 
 And heres my CMakeLists.txt for the space shooter game, with lots of explanation and useful things to remember when using cmake.
 
@@ -72,6 +72,7 @@ example
  - 2. you can declare the content with FetchContent_Declare (name, repo, branch)
  - 3. make the fetched content available in this current project
 Commands:
+
 ```
 include(FetchContent)
 FetchContent_Declare(
@@ -84,6 +85,7 @@ FetchContent_MakeAvailable(sfml)
 
 
 **The CMakesLits.txt for the spaceshooter game:**
+
 ```
 #must start with this
 cmake_minimum_required(VERSION 3.10) 

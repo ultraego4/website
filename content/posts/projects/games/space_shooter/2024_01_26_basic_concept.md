@@ -27,8 +27,6 @@ while(window.isOpen()){
 ```
 
 
-
-
 The processEvents function is waiting for some kind of event, key pressed, exit etc. and the render() cleans the screen, draws and then render the things on the screen.
 
 Usually 1 iteration of the main game loop is considered 1 tick or 1 FPS (but FPS more commonly references the rendering time not really the 1 iteration of the game loop).
@@ -39,8 +37,8 @@ When making games, vectors are soooo powerful. SFML has a class template for it 
 
 Vectors are useful for storing 2 points (absolute or relative), direction or flow. Normalizations, unit vectors, vector algebra all that stuff is pretty important, and you will have to get used to it in game making.
 
-
-`void Game::update(sf::Time deltaTime){`
+```
+void Game::update(sf::Time deltaTime){
 
     sf::Vector2f movement(0.f,0.f);
 
@@ -59,6 +57,7 @@ Vectors are useful for storing 2 points (absolute or relative), direction or flo
 
     mPlayer.move(movement * deltaTime.asSeconds()); // v = s*t
 }
+```
 
 We are using += because when the player presses 2 opposite keys the player wont move. 
 
@@ -70,7 +69,7 @@ Now this approach seems good but has another flaw. Lets say one iteration differ
 
 Now this where fixed time step comes in, it guaranties that the delta time is always the same.
 
-
+```
 void Game::run(){
 
     sf::Clock clock;
@@ -89,6 +88,7 @@ void Game::run(){
         render();
     }
 }
+```
 
 If the render is slow, the update could run multiplies times, the game could stutter because not every update is rendered, but the game wont be slow itself.
 
