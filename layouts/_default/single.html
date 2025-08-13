@@ -1,0 +1,12 @@
+{{ define "main" }}
+        <!-- SINGLE SECTION -->
+        <h2 class="no_bottom_margin">{{ .Title }}</h2>
+
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+
+        <div class="white_text">{{ .Content }}</div>
+        
+    {{ end }}
+

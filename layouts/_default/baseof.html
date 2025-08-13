@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css?{{ now.Unix }}">    
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+</head>
+<body>
+
+<table class="main_table">
+    <thead>
+        <tr>
+            <td class="merged_header" colspan="2">
+                <img src="/images/site_name_wordart.gif">
+                <img class="firebar" src="/images/firebar.gif">
+            </td>
+        </tr>
+    </thead>
+    <tbody  class="white_text">
+        <!-- LET THE HOME PAGE BE SOURCED -->
+        {{ if .IsHome }}
+            {{ block "home" . }}{{ end }}
+
+        <!-- FOR EVERY OTHER PAGE-->
+        {{ else }}
+        <tr>
+            <!-- MENU -->
+            <td>
+                {{ partial "menu.html" . }}
+            </td>
+            
+            <td>
+                <!-- TAXONOMY SECTION -->
+                {{ partial "taxonomy.html" . }}
+                <!-- CONTENT AREA - either list or single-->
+                {{ block "main" . }}{{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+
+</body>
+</html>
