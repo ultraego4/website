@@ -3,14 +3,14 @@ title = 'The first date between Me and the Rust programming language :)'
 date = 2024-01-26T12:06:41+01:00
 draft = false
 tags=["rust"]
-summary="YOOOOOOOOOOOOOOOOOOOOO! In this Im just gonna go through a couple of things I learned going with the Rust book, and it seems pretty interesting so far. It will also serves a documentation for me to remember useful things. Everything will be pretty surface level and just guessings on things because Im going sequentially with the book, thats why im not breaking down things on a deeper level"
+summary="YOOOOOOOOOOOOOOOOOOOOO! In this Im just gonna go through a couple of things I learned going with the Rust book, and it seems pretty interesting so far. It will also serves a documentation for me to remember useful things. Everything will be pretty surface level and just guessing on things because Im going sequentially with the book, thats why im not breaking down things on a deeper level"
 +++
 
 ##
 
 YOOOOOOOOOOOOOOOOOOOOO!
 
-In this Im just gonna go through a couple of things I learned going with the Rust book, and it seems pretty interesting so far. It will also serves a documentation for me to remember useful things. Everything will be pretty surface level and just guessings on things because Im going sequentially with the book, thats why im not breaking down things on a deeper level.
+In this Im just gonna go through a couple of things I learned going with the Rust book, and it seems pretty interesting so far. It will also serves a documentation for me to remember useful things. Everything will be pretty surface level and just guessing on things because Im going sequentially with the book, thats why im not breaking down things on a deeper level.
 
 
 ## First up, Cargo.
@@ -23,38 +23,38 @@ Theres also a Cargo.lock file, when you build your project Cargo will see the sp
 ## Useful cargo commands:
 
 Generating a project (includes gitignore as well):
-`cargo new myproject`
+```cargo new myproject```
 
 To build your project:
-`cargo build`
+```cargo build```
 
 To build and execute a program:
-`cargo run`
+```cargo run```
 
 To check if your code compiles but dont produce and exe:
-`cargo check`
+```cargo check```
 
 Building for release(if you dont use the release flag it will build debug by default):
-`cargo build --release`
+```cargo build --release```
 
 Updating creates:
-`cargo update`
+```cargo update```
 
 Documentations for packages(generates them locally for you based on the packages you use)(This is legit so insane i fkign love this):
-`cargo doc --open`
+```cargo doc --open```
 
 ## Let
-First thing first, in the documentation of our first little program, when creating variables we use the `let` type, i know nothing so far about it, its probably something similar to c++'s auto, i wonder what exactly happens under the hood, how is it different or better.
+First thing first, in the documentation of our first little program, when creating variables we use the ```let``` type, i know nothing so far about it, its probably something similar to c++'s auto, i wonder what exactly happens under the hood, how is it different or better.
 
 
 ## Mutable,immutable
-Quoting from the documentation "variables are immutable by default" damn, that is interesting, is it like const?( im comparing things with c++ you can figure it out by now) You use the `mut` keyword to make it mutable.
+Quoting from the documentation "variables are immutable by default" damn, that is interesting, is it like const?( im comparing things with c++ you can figure it out by now) You use the ```mut``` keyword to make it mutable.
 
 Creating a mutable string:
-`let mut mystring = String::new();`
+```let mut mystring = String::new();```
 
 ## Including
-Syntax for example: `use std::io;`, but if you didnt include it you could still use `std::io:stdin` in your code.
+Syntax for example: ```use std::io;```, but if you didnt include it you could still use ```std::io:stdin``` in your code.
 
 ## References
 In the example code reference is also used, i wonder is that any different from c++'s.
@@ -62,7 +62,7 @@ In the example code reference is also used, i wonder is that any different from 
 ## Result
 If we have a code like this:
 
-`io::stdin().read_line(&mut guess).expect("Failed to read line");`
+```io::stdin().read_line(&mut guess).expect("Failed to read line");```
 
 Readline here returns an enumeration called **Result**, variants are **Ok** and **Err**, err means your operation failed and contains information about how or why. An instance of Result has methods like .expect() you can call.
 

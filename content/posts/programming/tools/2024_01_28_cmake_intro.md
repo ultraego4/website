@@ -6,9 +6,9 @@ tags=["cmake","c++"]
 summary="Now systems could have multiple build systems installed, and also lets say your developing on linux and you would want your application to be cross platform, you would have to specify rules for your build process for the specific build system on the windows platform. Now CMake comes in and lets you do exactly that in a high-level config file and also in a managable format, hence the name cross-platform build system generator. It generates the build system specific build files for the given build systems."
 +++
 
-Well cmamke is an interesting thing, and it took me some time to grasp the fundamentals when i first started leraning about it, i didnt find the offical learn documentation very helpful, and couldnt really find any decent videos either. Doing my c++ uni course i was using Visual Studio I KNOW I KNOW... but the unit tests specifically had to be written in vs studios native c++ test framework so my teacher could run it through hes unit tests as well.
+Well cmake is an interesting thing, and it took me some time to grasp the fundamentals when i first started learning about it, i didnt find the official learn documentation very helpful, and couldnt really find any decent videos either. Doing my c++ uni course i was using Visual Studio I KNOW I KNOW... but the unit tests specifically had to be written in vs studios native c++ test framework so my teacher could run it through hes unit tests as well.
 
-Back in summer when i started learning c++ first on my own before the uni course i used the gnu compiler but really only knew how to generate an exectuable nothing other then that.
+Back in summer when i started learning c++ first on my own before the uni course i used the gnu compiler but really only knew how to generate an executable nothing other then that.
 
 While researching and learning how cmake works, i was able to also deepen my knowledge about compilers and build systems.
 
@@ -45,7 +45,7 @@ And heres my CMakeLists.txt for the space shooter game, with lots of explanation
  1. cmake | run it where CMakeLists.txt is!!!, generates the build files
  2. cmake --build | run it in the corresponding build directory!!!, builds based on the generated build files
 example
- - CMakeLists.txt in prject root, cwd=project/build/Release(build-type) then cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release ../..
+ - CMakeLists.txt in project root, cwd=project/build/Release(build-type) then cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release ../..
  - cmake --build .
 
 **Cmake flags**
@@ -56,10 +56,10 @@ example
 
 
 **Compile_commands.json**
- - SHOULDNT BE MAINTANED BY HAND!!!!
+ - SHOULDNT BE MAINTAINED BY HAND!!!!
  - set(CMAKE_EXPORT_COMPILE_COMMANDS ON) or cmake flag | generates the file
  - if you use RELEASE and DEBUG build type cmake flags its generated based on that
- - this helps the IDEs to analyze and understand your sources (go to definiton, find references etc.)
+ - this helps the IDEs to analyze and understand your sources (go to definition, find references etc.)
  - build system independence, describes build commands and flags generally (useful when using different build systems or multi-build system environments)
  - should be regenerated every time you add or remove source files, change compiler flags, or other adjustments
 
@@ -69,7 +69,7 @@ example
  - it checks if the fetched  content is already download locally or not
  
  - 1. include allows to fetch
- - 2. you can decleare the content with FetchContent_Declare (name, repo, branch)
+ - 2. you can declare the content with FetchContent_Declare (name, repo, branch)
  - 3. make the fetched content available in this current project
 Commands:
 ```
@@ -87,7 +87,7 @@ FetchContent_MakeAvailable(sfml)
 ```
 #must start with this
 cmake_minimum_required(VERSION 3.10) 
-project name and programing language
+project name and programming language
 project(SpaceShooter LANGUAGES CXX)
 
 #set c++ standard
