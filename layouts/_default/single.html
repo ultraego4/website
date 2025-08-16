@@ -6,6 +6,11 @@
         {{ $dateHuman := .Date | time.Format ":date_long" }}
         <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
+
+        <h2>Table of contents:</h2>
+
+        <aside>{{ .TableOfContents }}</aside>
+
         <div class="white_text">{{ .Content }}</div>
         
     {{ end }}
