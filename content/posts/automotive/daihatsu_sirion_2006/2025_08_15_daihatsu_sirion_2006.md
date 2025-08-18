@@ -98,6 +98,37 @@ We identified the model of the car and
 
 
 
+## Test
+
+# Interior features
+
+![turn_signal_stalk](assets/turn_signal_stalk.jpg)
+
+- [X] 1. Parking light / Sidelight (2 frontal, 2 rear)
+- [X] 2. Low beam headlight (2 frontal, 2 rear)
+
+2 elso helyzetjelzo works
+2 elulso tompitott fenyszoro works
+    - mindkettonel a 2 hatso lamp vilagit 
+**ködlámpa, körbe jo viszont a jobb hatso also nem vilagit!!!!**9
+bal index works elol hatul
+jobb index works elol hatul
+elore tolas tavolsagi fenyszoro huzasra vilagit
+hatulra tolas tavolsagi folyamatosan vilagit 
+
+
+![wiper_stalk](assets/wiper_stalk.jpg)
+
+![wiper_stalk_docs](assets/wiper_stalk_docs.png)
+**also poziba a tekeros resz hatso ablak torlo NO LIQUID**
+INT: moves the rear törlő, works fine lassan
+ON: moves automatically on the rear
+**felso pozicio hatso ablak NO LIQUID**
+
+pull-ra az elso
+flip fontre akkor 1 darab tisztias
+low autmatikusan lassan
+high gyorsan 
 
 
 
@@ -116,3 +147,4 @@ We identified the model of the car and
 
 ### About the Daihatsu Sirion 2006
 - [ Cara Buka Cover Head unit Sirion Old ](https://www.youtube.com/watch?v=BAIDmIEkS4o)
+- [](https://www.scribd.com/document/557197107/Daihatsu-Sirion-Service-Manual-Technical-Information-Body-Repair-Manual-p-d-i-Manual#page=400)
