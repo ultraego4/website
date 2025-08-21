@@ -147,15 +147,13 @@ We identified the model of the car and now we need something to test against. Th
 
 First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find and english owners manual, or translate the Dutch one.
 
-## Test
-
 *[x] means the feature is working as intended*
 
 *[ ] means the feature has some fault*
 
-# Interior features
+## Interior features
 
-## Turn signal stalk
+### Turn signal stalk
 
 ![turn_signal_stalk](/images/daihatsu_sirion_2006/turn_signal_stalk.jpg)
 
@@ -168,7 +166,7 @@ First im just gonna test the feature without guide based on common sense, and in
 - [X] 6. High beam headlight to pull
 - [X] 7. High beam headlight to push 
 
-## Wiper stalk
+### Wiper stalk
 
 ![wiper_stalk](/images/daihatsu_sirion_2006/wiper_stalk.jpg)
 
