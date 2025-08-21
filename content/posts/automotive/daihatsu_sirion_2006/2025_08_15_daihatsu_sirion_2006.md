@@ -1,13 +1,13 @@
 +++
 date = '2025-08-15T20:48:27+02:00'
-draft = true
-title = 'Car inspection: Daihatsu Sirion 2006 '
-summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL checkup of a Daihatsu Sirion 2006. From the internals to the externals and there will be soooooo much to learn. Lets dive in."
+draft = false
+title = 'Car inspection: Daihatsu Sirion 2006 - Day 1'
+summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL checkup of a Daihatsu Sirion 2006 from the internals to the externals and there will be soooooo much to learn. Lets dive in."
 +++
 
 ## Preliminary knowledge
 
-In this chapter i'll be talking about my knowledge state and what i did to ramp up.
+Lets talk about my knowledge state and what i did to ramp up.
 
 ### My current skill set
 
@@ -26,7 +26,17 @@ Multiple videos were digested in a couple of days (see [#References](#references
 
 ### Key technical parameters of a car
 
-TODO write about the parameters of the car which can be used to determine the "goodness".
+| Attribute | Value | Meaning |
+|-----------|-------|-------|
+| **Car Model** | text  | Name and version of the car |
+| **Top Speed** | km/h | The maximum speed the car can achieve under ideal conditions |
+| **Power** | PS(Pferdestärke) / kW | Engine power in metric horsepower and kilowatts. Measures how much work the engine can do over time. It shows how fast the engine can move the car. Conversion: 1 PS ≈ 0.7355 kW - 1kW . Approximate formula: **PS = (Torque × RPM) / 7127** for metric. |
+| **Engine Displacement** | ccm / L | Total volume of all engine cylinders. Larger displacement usually means the engine can burn more fuel-air mixture, producing more power and torque. |
+| **Torque** | Nm | Rotational force the engine produces. High torque improves acceleration and how well the car pulls, especially at low speeds.|
+| **Engine Type / Configuration** | text | e.g., V6, V8, Inline-4 |
+| **Weight** | kg | The curb weight of the car (without passengers or cargo). Lighter cars tend to accelerate faster and handle better. |
+| **Power-to-Weight Ratio** | PP | Power per weight unit, performance indicator. Shows engine power relative to the car’s weight. Higher values indicate better performance—how “quick” the car is compared to its mass.|
+
 
 ### Car specific stuff
 
@@ -36,11 +46,11 @@ I tried to search for something like a database that has information on car mode
 
 Found a site called [ultimateSPECS](https://www.ultimatespecs.com/) which was recommended on multiple forums. It even seemed alright, had a category for Daihatsu and also the specific model, however i could not match the tested car to any of the ones on the site. There where even 2 models:
 
-![ultimatespecs_daihatsu_categories](assets/ultimatespecs_daihatsu_categories.png)
+![ultimatespecs_daihatsu_categories](/images/daihatsu_sirion_2006/ultimatespecs_daihatsu_categories.png)
 
 In the normal variant no 2006 model listed, however in the Sirion II there is one from the year 2006.
 
-![ultimatespecs_daihatsu_list](assets/ultimatespecs_daihatsu_list.png)
+![ultimatespecs_daihatsu_list](/images/daihatsu_sirion_2006/ultimatespecs_daihatsu_list.png)
 
 It looks good however, i feel like a more accurate and authentic source is needed. After more thinking...
 
@@ -82,10 +92,49 @@ Information gathered:
 
 Got the engine number, thats awesome, also the actual model M3. Remember the engine displacement from the [ultimateSPECS](https://www.ultimatespecs.com/) site? The engine displacement differs so that information is considered invalid for us. Good thinking we kept looking.
 
+### The full description of the car based on the key parameters
+
+| Attribute | Value |
+|-----------|-------|
+| Car Model | Daihatsu Sirion M3 |
+| Top Speed | ~165 km/h |
+| Power | 51 kW / 69 PS |
+| Engine Displacement | 998 cm³ / 0.998 L |
+| Torque | ~81 Nm |
+| Engine Type / Configuration | Inline-3 (1KR engine) |
+| Weight | 928 kg |
+| Power-to-Weight Ratio | ~0.074 kW/kg (~0.093 PS/kg) |1
+
+
+*Estimations:*
+
+```
+Top speed:
+
+Power: 51 kW (~69 PS)
+Weight: 928 kg
+Small 3-cylinder engine, manual 5-speed gearbox
+```
+
+```
+Torque (Nm):
+
+Torque (Nm) = (Power (kW) * 9550) / RPM
+Torque ≈ (51 * 9550) / 6000 ≈ 81 Nm
+```
+
+```
+Power-to-Weight Ratio:
+
+Power-to-Weight (kW/kg) = Power (kW) / Weight (kg)
+Power-to-Weight ≈ 51 / 928 ≈ 0.074 kW/kg
+Power-to-Weight (PS/kg) ≈ 69 / 928 ≈ 0.093 PS/kg
+```
+
 
 ## Testing of the car
 
-The car will be inspected from 3 main perspective, trying to identify as many deviation as possible:
+The car will be inspected from 3 main perspective during the weekends, trying to identify as many deviation as possible:
 - Test drive
 - Engine bay
 - Interior and exterior
@@ -94,42 +143,39 @@ Unfortunately because of the lack of tools i cannot view the car from the bottom
 
 ### Preparation
 
-We identified the model of the car and 
+We identified the model of the car and now we need something to test against. The owners manual would be the best however the one i got hands on is Dutch and I am so not want to translate continuously. So i did some search on the Internet, but actually i could not find the same owners manual in english, heck in any other language.
 
-
+First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find and english owners manual, or translate the Dutch one.
 
 ## Test
 
+*[x] means the feature is working as intended*
+
+*[ ] means the feature has some fault*
+
 # Interior features
 
-![turn_signal_stalk](assets/turn_signal_stalk.jpg)
+## Turn signal stalk
+
+![turn_signal_stalk](/images/daihatsu_sirion_2006/turn_signal_stalk.jpg)
 
 - [X] 1. Parking light / Sidelight (2 frontal, 2 rear)
 - [X] 2. Low beam headlight (2 frontal, 2 rear)
+- [ ] **3. Fog lamp** (2 frontal, 2 rear)
+  - Right rear not working
+- [X] 4. Right turn signal (frontal/ rear)
+- [X] 5. Left turn signal (frontal/ rear)
+- [X] 6. High beam headlight to pull
+- [X] 7. High beam headlight to push 
 
-2 elso helyzetjelzo works
-2 elulso tompitott fenyszoro works
-    - mindkettonel a 2 hatso lamp vilagit 
-**ködlámpa, körbe jo viszont a jobb hatso also nem vilagit!!!!**9
-bal index works elol hatul
-jobb index works elol hatul
-elore tolas tavolsagi fenyszoro huzasra vilagit
-hatulra tolas tavolsagi folyamatosan vilagit 
+## Wiper stalk
 
+![wiper_stalk](/images/daihatsu_sirion_2006/wiper_stalk.jpg)
 
-![wiper_stalk](assets/wiper_stalk.jpg)
+![wiper_stalk_docs](/images/daihatsu_sirion_2006/wiper_stalk_docs.png)
 
-![wiper_stalk_docs](assets/wiper_stalk_docs.png)
-**also poziba a tekeros resz hatso ablak torlo NO LIQUID**
-INT: moves the rear törlő, works fine lassan
-ON: moves automatically on the rear
-**felso pozicio hatso ablak NO LIQUID**
-
-pull-ra az elso
-flip fontre akkor 1 darab tisztias
-low autmatikusan lassan
-high gyorsan 
-
+The mechanical part works fine for every state, however there is one finding:
+- [ ] No liquid for the rear wiper
 
 
 
@@ -147,4 +193,4 @@ high gyorsan
 
 ### About the Daihatsu Sirion 2006
 - [ Cara Buka Cover Head unit Sirion Old ](https://www.youtube.com/watch?v=BAIDmIEkS4o)
-- [](https://www.scribd.com/document/557197107/Daihatsu-Sirion-Service-Manual-Technical-Information-Body-Repair-Manual-p-d-i-Manual#page=400)
+- [Daihatsu Sirion Service Manual & Technical Information & Body Repair Manual & P.D.I Manual](https://www.scribd.com/document/557197107/Daihatsu-Sirion-Service-Manual-Technical-Information-Body-Repair-Manual-p-d-i-Manual#page=400) - this is not the correct manual
