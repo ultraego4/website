@@ -141,6 +141,8 @@ The car will be inspected from 3 main perspective during the weekends, trying to
 
 Unfortunately because of the lack of tools i cannot view the car from the bottom.
 
+The fixes will be applied after the full inspection, however possible fix's are provided.
+
 ### Preparation
 
 We identified the model of the car and now we need something to test against. The owners manual would be the best however the one i got hands on is Dutch and I am so not want to translate continuously. So i did some search on the Internet, but actually i could not find the same owners manual in english, heck in any other language.
@@ -175,7 +177,9 @@ First im just gonna test the feature without guide based on common sense, and in
 The mechanical part works fine for every state, however there is one finding:
 - [ ] No liquid for the rear wiper
 
-
+## Day 1 findings summarized:
+- On the turn signal stalk in the fog lamp mode the right rear lamp is not working, the reason is not clear yet.
+- No liquid for the rear wiper. Theoretically it should be provided from the front tank therefore there could be some clogging issue maybe.
 
 ## References
 
