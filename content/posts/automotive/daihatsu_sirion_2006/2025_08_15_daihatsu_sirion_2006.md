@@ -177,7 +177,7 @@ First im just gonna test the feature without guide based on common sense, and in
 The mechanical part works fine for every state, however there is one finding:
 - [ ] No liquid for the rear wiper
 
-## Day 1 findings summarized:
+## Day 1 findings summarized
 - On the turn signal stalk in the fog lamp mode the right rear lamp is not working, the reason is not clear yet.
 - No liquid for the rear wiper. Theoretically it should be provided from the front tank therefore there could be some clogging issue maybe.
 
