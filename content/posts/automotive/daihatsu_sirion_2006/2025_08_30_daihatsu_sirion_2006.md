@@ -1,6 +1,6 @@
 +++
 date = '2025-08-30T08:45:27+02:00'
-draft = false
+draft = true
 title = 'Car inspection: Daihatsu Sirion 2006 - Day 2'
 summary = "Inspection of the other interior feature will performed. Focus is on the main head unit features like the radio, AC, hazard warning signal etc."
 tags=["automotive"]
