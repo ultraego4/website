@@ -4,7 +4,7 @@ draft = false
 title = 'Car inspection: Daihatsu Sirion 2006 - Day 1'
 summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL checkup of a Daihatsu Sirion 2006 from the internals to the externals and there will be soooooo much to learn. Lets dive in."
 tags=["automotive"]
-categories=["project"]
+categories=["projects"]
 +++
 
 ## Preliminary knowledge
