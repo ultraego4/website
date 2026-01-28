@@ -2,7 +2,7 @@
 date = '2025-08-15T20:48:27+02:00'
 draft = false
 title = 'Car inspection: Daihatsu Sirion 2006 - Day 1'
-summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL checkup of a Daihatsu Sirion 2006 from the internals to the externals and there will be soooooo much to learn. Lets dive in."
+summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL inspection of a Daihatsu Sirion 2006 from the internals to the externals."
 tags=["automotive"]
 categories=["projects"]
 +++
@@ -16,8 +16,6 @@ Lets talk about my knowledge state and what i did to ramp up.
 The skill set goes as far:
 - Drivers license achieved 2 years ago, but haven't driven since (just picked up driving again)
 - Knowledge about steering system due to my job
-- Okay physics
-- Shit ton of motivation for learning/ understanding new things and researching.
   
 Hardest part will be to identify not obvious deviations that happen during driving, since i have almost no expertise in feeling out the car, hear things etc.
 
@@ -39,6 +37,33 @@ Multiple videos were digested in a couple of days (see [#References](#references
 | **Weight** | kg | The curb weight of the car (without passengers or cargo). Lighter cars tend to accelerate faster and handle better. |
 | **Power-to-Weight Ratio** | PP | Power per weight unit, performance indicator. Shows engine power relative to the car’s weight. Higher values indicate better performance—how “quick” the car is compared to its mass.|
 
+**Car Model**  
+: Name and version of the car
+
+**Top Speed**  
+: *km/h* — Maximum speed under ideal conditions
+
+**Power**  
+: *PS (Pferdestärke) / kW* — Engine output
+
+  Conversion: 1 PS ≈ 0.7355 kW (metric horsepower)  
+
+**Engine Displacement**  
+: *ccm / L* — Total cylinder volume
+
+**Torque**  
+: *Nm* — Rotational force produced by the engine
+
+**Engine Type / Configuration**  
+: The physical layout of the engine’s cylinders.
+
+**Weight**  
+: *kg* — The curb weight of the car without passengers or cargo.  
+
+**Power-to-Weight Ratio**  
+: *Power per unit of mass* (often PS per ton).
+
+  Performance indicator. Shows engine power relative to the car’s weight. Higher values indicate better performance—how “quick” the car is compared to its mass.
 
 ### Car specific stuff
 
@@ -111,11 +136,13 @@ Got the engine number, thats awesome, also the actual model M3. Remember the eng
 *Estimations:*
 
 ```
+
 Top speed:
 
 Power: 51 kW (~69 PS)
 Weight: 928 kg
 Small 3-cylinder engine, manual 5-speed gearbox
+
 ```
 
 ```
