@@ -1,7 +1,7 @@
 +++
 title = 'What is SFML?'
 date = 2024-01-25T16:44:08+01:00
-draft = false
+draft = true
 tags=["sfml","c++","game"]
 summary = "After the boring summary, now for the dumdums like me, its basically something that lets you create graphical applications including everything you would interact with a modern software nowdays. Its primarily used for game development. Its also based on OpenGL, keep that in mind boys. To make an insane AAA game you just include some libraries, write some code and BOOOOM you have a game, thats it, its that easy. Anyways..."
 +++

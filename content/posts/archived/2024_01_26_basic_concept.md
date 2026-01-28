@@ -1,9 +1,9 @@
 +++
 title = 'Learning SFML through making a space shooter game: Game loop, FPS, events'
 date = 2024-01-26T12:20:34+01:00
-draft = false
+draft = true
 tags=["sfml","c++","game"]
-categories=["projects"]
+categories=["project"]
 summary= "So in my previous post i went through what SFML is in a nutshell, in this one im gonna talk about some basic game concepts such as game loops, FPS, fixed time step."
 +++
 

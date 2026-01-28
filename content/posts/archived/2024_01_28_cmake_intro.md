@@ -1,7 +1,7 @@
 +++
 title = 'How i grasped the basics of CMake aka CMAKE NIGHTMARE'
 date = 2024-01-28T15:30:32+01:00
-draft = false
+draft = true
 tags=["cmake","c++"]
 summary="Now systems could have multiple build systems installed, and also lets say your developing on linux and you would want your application to be cross platform, you would have to specify rules for your build process for the specific build system on the windows platform. Now CMake comes in and lets you do exactly that in a high-level config file and also in a managable format, hence the name cross-platform build system generator. It generates the build system specific build files for the given build systems."
 +++

@@ -3,6 +3,8 @@ date = '2025-08-15T20:48:27+02:00'
 draft = false
 title = 'Car inspection: Daihatsu Sirion 2006 - Day 1'
 summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL checkup of a Daihatsu Sirion 2006 from the internals to the externals and there will be soooooo much to learn. Lets dive in."
+tags=["automotive"]
+categories=["project"]
 +++
 
 ## Preliminary knowledge
@@ -147,7 +149,7 @@ The fixes will be applied after the full inspection, however possible fix's are 
 
 We identified the model of the car and now we need something to test against. The owners manual would be the best however the one i got hands on is Dutch and I am so not want to translate continuously. So i did some search on the Internet, but actually i could not find the same owners manual in english, heck in any other language.
 
-First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find and english owners manual, or translate the Dutch one.
+First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find an english owners manual, or translate the Dutch one.
 
 *[x] means the feature is working as intended*
 

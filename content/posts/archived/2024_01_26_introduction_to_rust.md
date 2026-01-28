@@ -1,7 +1,7 @@
 +++
 title = 'The first date between Me and the Rust programming language :)'
 date = 2024-01-26T12:06:41+01:00
-draft = false
+draft = true
 tags=["rust"]
 summary="YOOOOOOOOOOOOOOOOOOOOO! In this Im just gonna go through a couple of things I learned going with the Rust book, and it seems pretty interesting so far. It will also serves a documentation for me to remember useful things. Everything will be pretty surface level and just guessing on things because Im going sequentially with the book, thats why im not breaking down things on a deeper level"
 +++
