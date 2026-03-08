@@ -1,16 +1,16 @@
 +++
-title = 'How i grasped the basics of CMake aka CMAKE NIGHTMARE'
+title = 'How I grasped the basics of CMake aka CMAKE NIGHTMARE'
 date = 2024-01-28T15:30:32+01:00
 draft = true
 tags=["cmake","c++"]
 summary="Now systems could have multiple build systems installed, and also lets say your developing on linux and you would want your application to be cross platform, you would have to specify rules for your build process for the specific build system on the windows platform. Now CMake comes in and lets you do exactly that in a high-level config file and also in a managable format, hence the name cross-platform build system generator. It generates the build system specific build files for the given build systems."
 +++
 
-Well cmake is an interesting thing, and it took me some time to grasp the fundamentals when i first started learning about it, i didnt find the official learn documentation very helpful, and couldnt really find any decent videos either. Doing my c++ uni course i was using Visual Studio I KNOW I KNOW... but the unit tests specifically had to be written in vs studios native c++ test framework so my teacher could run it through hes unit tests as well.
+Well cmake is an interesting thing, and it took me some time to grasp the fundamentals when I first started learning about it, I didn't find the official learn documentation very helpful, and couldn't really find any decent videos either. Doing my c++ uni course I was using Visual Studio I KNOW I KNOW... but the unit tests specifically had to be written in vs studios native c++ test framework so my teacher could run it through hes unit tests as well.
 
-Back in summer when i started learning c++ first on my own before the uni course i used the gnu compiler but really only knew how to generate an executable nothing other then that.
+Back in summer when I started learning c++ first on my own before the uni course I used the gnu compiler but really only knew how to generate an executable nothing other then that.
 
-While researching and learning how cmake works, i was able to also deepen my knowledge about compilers and build systems.
+While researching and learning how cmake works, I was able to also deepen my knowledge about compilers and build systems.
 
 Ok first of all to understand why cmake is useful lets talk about build systems. A build system is a set of tools used for compiling and linking. It controls the generation of executables. For example the GNU Make on linux.
 
