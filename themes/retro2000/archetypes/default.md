@@ -7,7 +7,7 @@ tags=["TODO"]
 categories=["TODO"]
 +++
 
-## Chapter 2 
+## Chapter 2
 
 
 ### Chapter 3

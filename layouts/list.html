@@ -1,0 +1,38 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ if eq .Section "posts" }}
+
+  {{ $pages := where .Site.RegularPages "Type" "posts" }}
+
+  {{ range $pages.GroupByDate "2006" }}
+    <h2>{{ .Key }}</h2>
+
+    <ul>
+      {{ range .Pages }}
+        <li>
+          <span>{{ .Date.Format "2006/01/02" }}</span>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+{{ else }}
+
+  <!--TAGS AND CATEGORIES-->
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <span>{{ .Date.Format "2006/01/02" }}</span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+
+{{ end }}
+
+{{ partial "footer.html" . }}

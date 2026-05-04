@@ -6,6 +6,35 @@ title = 'Sewer Monkey Sanctuary'
   tag = "tags"
   category = "categories"
 
-
 themesDir = "themes"
-theme = "minimal"
+theme = "XMin"
+
+# xmin theme related
+
+[menu]
+
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
+
+[params]
+  footer = "&copy; ultraego4 2024 -- {Year} | [github](https://github.com/ultraego4) | [contact](sewermonkeysanctuary@gmail.com) |"
+
+[permalinks]
+  post= "/posts/:year/:month/:day/:slug/"
