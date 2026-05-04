@@ -7,3 +7,5 @@ title = 'Sewer Monkey Sanctuary'
   category = "categories"
 
 
+themesDir = "themes"
+theme = "minimal"

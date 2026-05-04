@@ -1,0 +1,18 @@
+
+<div class="post_block">
+
+{{ $taxonomies := dict "Categories" .Site.Taxonomies.categories "Tags" .Site.Taxonomies.tags }}
+
+{{ range $label, $items := $taxonomies }}
+
+<!-- div for new line-->
+    <div>
+        {{ $label }}:
+        {{ range $name, $taxonomy := $items }}
+            {{ with $.Site.GetPage (printf "/%s/%s" (lower $label) $name) }}
+                <a href="{{ .Permalink }}">{{ $name }}</a> <sup>{{ $taxonomy.Count }}</sup>
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}
+</div>

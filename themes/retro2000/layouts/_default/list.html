@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+    <!-- LIST SECTION -->
+    {{ range .Pages}} <!-- use .Pages to render all, categories or tax's-->
+    <div class="post_block">
+        <h2 class="no_bottom_margin">
+            <a href="{{ .RelPermalink }}" class="link">{{ .LinkTitle }}</a>
+        </h2>
+
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            
+        <br>
+            <a style="color: white; text-align:justify;">{{ .Summary }}</a>
+        </br>
+    </div>
+    {{ end }}
+
+{{ end }}
