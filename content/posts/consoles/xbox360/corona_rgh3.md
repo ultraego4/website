@@ -202,9 +202,6 @@ From that point on my flow is, I use iso2god with Wine then transfer the games v
 
 This was a very fun and challenging experience. I played with the console a couple times and since then its just sitting in the cupboard. Thats how all my consoles end up.You hack it for the fun, and never actually use it.
 
-Anyways, signing out...
-
-
 ## References
 
 - Official writeup - [Xbox 360 security in details: the long way to RGH3](https://swarm.ptsecurity.com/xbox-360-security-in-details-the-long-way-to-rgh3/)
