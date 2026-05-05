@@ -1,6 +1,6 @@
 baseURL = 'https://sewermonkeysanctuary.org/'
 languageCode = 'en-us'
-title = 'libre thoughts'
+title = 'Libre Thoughts'
 
 [taxonomies]
   tag = "tags"
