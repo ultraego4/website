@@ -5,6 +5,7 @@ title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 summary = "TODO"
 tags=["TODO"]
 categories=["TODO"]
+slug="TODO"
 +++
 
 ## Chapter 2 
