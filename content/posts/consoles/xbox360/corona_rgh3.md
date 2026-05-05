@@ -3,8 +3,8 @@ date = '2026-05-05T12:41:58+02:00'
 draft = false
 title = 'Xbox360 Chipless RGH3 glich writeup (Corona v4 4GB Waitsburg)'
 summary = "TODO"
-tags=["xbox360"]
-categories=["Console hacking"]
+tags=["xbox360","rgh3","glitch"]
+categories=["Embedded","Hacking","Console"]
 slug = "xbox360_rgh3_chipless"
 +++
 
