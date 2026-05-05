@@ -75,11 +75,11 @@ I tried to search for something like a database that has information on car mode
 
 Found a site called [ultimateSPECS](https://www.ultimatespecs.com/) which was recommended on multiple forums. It even seemed alright, had a category for Daihatsu and also the specific model, however i could not match the tested car to any of the ones on the site. There where even 2 models:
 
-![ultimatespecs_daihatsu_categories](/images/daihatsu_sirion_2006/ultimatespecs_daihatsu_categories.png)
+![ultimatespecs_daihatsu_categories](/img/daihatsu_sirion_2006/ultimatespecs_daihatsu_categories.png)
 
 In the normal variant no 2006 model listed, however in the Sirion II there is one from the year 2006.
 
-![ultimatespecs_daihatsu_list](/images/daihatsu_sirion_2006/ultimatespecs_daihatsu_list.png)
+![ultimatespecs_daihatsu_list](/img/daihatsu_sirion_2006/ultimatespecs_daihatsu_list.png)
 
 It looks good however, i feel like a more accurate and authentic source is needed. After more thinking...
 
@@ -187,7 +187,7 @@ First im just gonna test the feature without guide based on common sense, and in
 
 ### Turn signal stalk
 
-![turn_signal_stalk](/images/daihatsu_sirion_2006/turn_signal_stalk.jpg)
+![turn_signal_stalk](/img/daihatsu_sirion_2006/turn_signal_stalk.jpg)
 
 - [X] 1. Parking light / Sidelight (2 frontal, 2 rear)
 - [X] 2. Low beam headlight (2 frontal, 2 rear)
@@ -200,9 +200,9 @@ First im just gonna test the feature without guide based on common sense, and in
 
 ### Wiper stalk
 
-![wiper_stalk](/images/daihatsu_sirion_2006/wiper_stalk.jpg)
+![wiper_stalk](/img/daihatsu_sirion_2006/wiper_stalk.jpg)
 
-![wiper_stalk_docs](/images/daihatsu_sirion_2006/wiper_stalk_docs.png)
+![wiper_stalk_docs](/img/daihatsu_sirion_2006/wiper_stalk_docs.png)
 
 The mechanical part works fine for every state, however there is one finding:
 - [ ] No liquid for the rear wiper
