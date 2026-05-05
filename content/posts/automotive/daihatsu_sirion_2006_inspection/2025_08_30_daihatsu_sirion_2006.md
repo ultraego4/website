@@ -14,13 +14,13 @@ The car will be inspected from 3 main perspective during the weekends, trying to
 - Engine bay
 - Interior and exterior
 
-Unfortunately because of the lack of tools i cannot view the car from the bottom.
+Unfortunately because of the lack of tools I cannot view the car from the bottom.
 
 The fixes will be applied after the full inspection, however possible fix's are provided.
 
 ### Preparation
 
-We need something to test against. The owners manual would be the best however the one i got hands on is Dutch and I am so not want to translate continuously. So i did some search on the Internet, but actually i could not find the same owners manual in english, heck in any other language.
+We need something to test against. The owners manual would be the best however the one I got hands on is Dutch and I am so not want to translate continuously. So I did some search on the Internet, but actually I could not find the same owners manual in english, heck in any other language.
 
 First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find an english owners manual, or translate the Dutch one.
 

@@ -2,7 +2,7 @@
 date = '2025-08-15T20:48:27+02:00'
 draft = false
 title = 'Car inspection: Daihatsu Sirion 2006 - Day 1'
-summary = "Since i have been working in the automotive industry for almost 2 years now, i think it's kind of time to get into cars. My very first project will be a FULL inspection of a Daihatsu Sirion 2006 from the internals to the externals."
+summary = "Since I have been working in the automotive industry for almost 2 years now, I think it's kind of time to get into cars. My very first project will be a FULL inspection of a Daihatsu Sirion 2006 from the internals to the externals."
 tags = [""]
 categories=["projects", "automotive"]
 slug="day_1"
@@ -11,7 +11,7 @@ slug="day_1"
 
 ## Preliminary knowledge
 
-Lets talk about my knowledge state and what i did to ramp up.
+Lets talk about my knowledge state and what I did to ramp up.
 
 ### My current skill set
 
@@ -19,12 +19,12 @@ The skill set goes as far:
 - Drivers license achieved 2 years ago, but haven't driven since (just picked up driving again)
 - Knowledge about steering system due to my job
   
-Hardest part will be to identify not obvious deviations that happen during driving, since i have almost no expertise in feeling out the car, hear things etc.
+Hardest part will be to identify not obvious deviations that happen during driving, since I have almost no expertise in feeling out the car, hear things etc.
 
 
 ## Theoretical ramp-up
 
-Multiple videos were digested in a couple of days (see [#References](#references)) to get a basic understanding of the internal workings of the car. I think i get the general idea now.
+Multiple videos were digested in a couple of days (see [#References](#references)) to get a basic understanding of the internal workings of the car. I think I get the general idea now.
 
 ### Key technical parameters of a car
 
@@ -69,11 +69,11 @@ Multiple videos were digested in a couple of days (see [#References](#references
 
 ### Car specific stuff
 
-The only thing i know about the car is that its a Daihatsu Sirion 2006. When i first tried to google these exact phrase couldn't really find the proper model because of the lot of results.
+The only thing I know about the car is that its a Daihatsu Sirion 2006. When I first tried to google these exact phrase couldn't really find the proper model because of the lot of results.
 
-I tried to search for something like a database that has information on car models so somehow i could identify the car and its internal parts.
+I tried to search for something like a database that has information on car models so somehow I could identify the car and its internal parts.
 
-Found a site called [ultimateSPECS](https://www.ultimatespecs.com/) which was recommended on multiple forums. It even seemed alright, had a category for Daihatsu and also the specific model, however i could not match the tested car to any of the ones on the site. There where even 2 models:
+Found a site called [ultimateSPECS](https://www.ultimatespecs.com/) which was recommended on multiple forums. It even seemed alright, had a category for Daihatsu and also the specific model, however I could not match the tested car to any of the ones on the site. There where even 2 models:
 
 ![ultimatespecs_daihatsu_categories](/img/daihatsu_sirion_2006/ultimatespecs_daihatsu_categories.png)
 
@@ -81,11 +81,11 @@ In the normal variant no 2006 model listed, however in the Sirion II there is on
 
 ![ultimatespecs_daihatsu_list](/img/daihatsu_sirion_2006/ultimatespecs_daihatsu_list.png)
 
-It looks good however, i feel like a more accurate and authentic source is needed. After more thinking...
+It looks good however, I feel like a more accurate and authentic source is needed. After more thinking...
 
 ### Gathering more stuff
 
-More information was needed to accurately identify the parts of the car. I knew about VIN ( Vehicle Identification Number) which is a unique id for every car. Based on this, things could be looked up. Lot of shitty ass paid databases, i checked some of them with the cars VIN, however didn't really find a hit.
+More information was needed to accurately identify the parts of the car. I knew about VIN ( Vehicle Identification Number) which is a unique id for every car. Based on this, things could be looked up. Lot of shitty ass paid databases, I checked some of them with the cars VIN, however didn't really find a hit.
 
 One other thing you can do in my country (and probably in others) to lookup a cars detailed information based on the name plate. So I did that.
 
@@ -169,13 +169,13 @@ The car will be inspected from 3 main perspective during the weekends, trying to
 - Engine bay
 - Interior and exterior
 
-Unfortunately because of the lack of tools i cannot view the car from the bottom.
+Unfortunately because of the lack of tools I cannot view the car from the bottom.
 
 The fixes will be applied after the full inspection, however possible fix's are provided.
 
 ### Preparation
 
-We identified the model of the car and now we need something to test against. The owners manual would be the best however the one i got hands on is Dutch and I am so not want to translate continuously. So i did some search on the Internet, but actually i could not find the same owners manual in english, heck in any other language.
+We identified the model of the car and now we need something to test against. The owners manual would be the best however the one I got hands on is Dutch and I am so not want to translate continuously. So I did some search on the Internet, but actually I could not find the same owners manual in english, heck in any other language.
 
 First im just gonna test the feature without guide based on common sense, and in the meantime I will try to find an english owners manual, or translate the Dutch one.
 
@@ -225,4 +225,4 @@ The mechanical part works fine for every state, however there is one finding:
 
 ### About the Daihatsu Sirion 2006
 - [ Cara Buka Cover Head unit Sirion Old ](https://www.youtube.com/watch?v=BAIDmIEkS4o)
-- [Daihatsu Sirion Service Manual & Technical Information & Body Repair Manual & P.D.I Manual](https://www.scribd.com/document/557197107/Daihatsu-Sirion-Service-Manual-Technical-Information-Body-Repair-Manual-p-d-i-Manual#page=400) - this is not the correct manual
+- [Daihatsu Sirion Service Manual & Technical Information & Body Repair Manual & P.D.I Manual](https://www.scribd.com/document/557197107/Daihatsu-Sirion-Service-Manual-Technical-Information-Body-Repair-Manual-p-d-I-Manual#page=400) - this is not the correct manual
