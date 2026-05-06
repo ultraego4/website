@@ -8,32 +8,61 @@ categories=["Embedded","Hacking","Console"]
 slug = "xbox360_rgh3_chipless"
 +++
 
+## Summary
+
+This write-up documents my first Xbox 360 hardware modification using RGH3 on an Xbox 360 S with a Corona v4 / Waitsburg 4GB motherboard.
+
+The project involved identifying the correct motherboard revision, verifying NAND type and POST_OUT availability, soldering the required points for the RGH3 wiring, flashing XeLL, and debugging several hardware and tooling issues along the way.
+
+Although the final result was a successful boot into XeLL and a working RGH3 setup, the most valuable part of the project was the debugging process. It required careful validation of solder joints, understanding board-specific differences, checking assumptions about the boot process, and dealing with unreliable tooling behavior.
+
+The main skills involved were:
+
+- hardware identification and board revision research
+- SMD soldering
+- NAND reading and writing
+- firmware flashing
+- hardware/software debugging
+- documentation of failure points and troubleshooting steps
+
+## High-level overview of RGH3
+
+RGH3 is a modern variant of the Xbox 360 Reset Glitch Hack. The general idea behind RGH is to interfere with the console’s boot process at a very specific moment, causing the CPU to misbehave in a controlled way and allowing unsigned code to run.
+
+Older RGH methods usually relied on an external glitch chip. RGH3 is different because it can use the Xbox 360’s own SMC instead of a separate glitch chip, which is why it is often described as a “chipless” method. In practice, the install still requires wiring, resistors, NAND access, and board-specific preparation, but there is no separate glitch chip installed.
+
+In this setup, the important pieces are:
+
+- **NAND**: stores the console firmware image. It needs to be read, backed up, modified, and written back.
+- **XeLL**: a small loader used during the process to boot unsigned code and retrieve the CPU key.
+- **PLL**: used as part of the glitching process.
+- **SMC_POST / SMC_PLL**: points involved in the SMC-based glitch wiring.
+- **POST_OUT**: a signal used to observe CPU boot progress. On some Corona boards this is missing from the motherboard layout, so a POST fix adapter is required.
+
+This write-up is not meant to be a full universal installation guide. It documents my specific board, my process, and the issues I encountered.
 
 ## Motivation
 
-I got my first console around the end of elementary school, a PS2 Phat ([SCPH-50004](https://consolemods.org/wiki/PS2:Model_Differences#:~:text=SCPH%2D500XX%20%282003%2D2004)), and it already had a MODBO modchip installed. I played it every day and was fascinated that I could play any game I had a copy of.
+I have been interested in console modding for a long time.
 
-Around middle school, I got a PSP ([PSP-1000](https://consolemods.org/wiki/PSP:Model_Differences#:~:text=PSP%2D1000%20%22Phat%2FFat%22%20%282004%2D2007)) and later on a PS Vita ([PCH-2004](https://consolemods.org/wiki/Vita:Model_Differences#PCH-20xx_%22Slim%22_(2013-2019):~:text=PCH%2D20xx%20%22Slim%22%20%282013%2D2019)). The PS Vita was the first console I ever modded.
+My first console was a PS2 Phat ([SCPH-50004](https://consolemods.org/wiki/PS2:Model_Differences#:~:text=SCPH%2D500XX%20%282003%2D2004)) with a MODBO modchip already installed. Later I used a PSP ([PSP-1000](https://consolemods.org/wiki/PSP:Model_Differences#:~:text=PSP%2D1000%20%22Phat%2FFat%22%20%282004%2D2007)), a PS Vita ([PCH-2004](https://consolemods.org/wiki/Vita:Model_Differences#PCH-20xx_%22Slim%22_(2013-2019):~:text=PCH%2D20xx%20%22Slim%22%20%282013%2D2019)), a Japanese Nintendo 3DS, and also modified my hard-modded PS2 to boot games from an HDD.
 
-Since then, I also soft-modded my Japanese Nintendo 3DS and modified my hard-modded PS2 to boot games from an HDD.
+The Xbox 360 was different because it was the first hard mod I performed myself, and also my first real attempt at SMD soldering.
 
-This Xbox 360 was the first hard mod I’ve done, and also the first time I started actual SMD soldering.
-
-This project was started around February 2025 and was put down for almost a year (you’ll see why below) before continuing in December 2025. During that time, I did multiple soldering jobs and my skills improved as lot.
-
-
+I originally started this project around February 2025, but put it aside after running into several issues. I came back to it later with better soldering skills and a better understanding of the process. That second attempt was where the project finally came together.
 
 ## Identification
 
-To perform the hard mod I went by the [Xbox 360 Hub guide](https://xbox360hub.com/guides/rgh-3-guide/) and [MrMario's video](https://www.youtube.com/watch?v=hpOlGeCHwro), cross referencing both of them.
+Before doing any soldering, I needed to identify the exact motherboard revision and related hardware characteristics. This matters because the required wiring and preparation steps depend on the specific Xbox 360 revision.
 
-The first step was to identify which specific models and components I have and there are multiple resources to do that.
+For this part I cross-referenced multiple resources, mainly the Xbox 360 Hub guide, MrMario’s video guide, ConsoleMods, XenonLibrary, and Octal’s identification wizard.
+
 
 ### Motherboard
 
 Starting off the modding I only had a name: Xbox 360 S Console, written on the barcode sticker of the console.
 
-Motherboard version is based on the current drawn ([octal450 wizard](https://octal450.github.io/identify/)):
+Motherboard version is based on the current rating ([octal450 wizard](https://octal450.github.io/identify/)):
 
 ![alt text](/img/xbox360/octal_identification.png)
 
@@ -45,7 +74,8 @@ Meaning it was either a CORONA or WAITSBURG. It is important because later steps
 
 ### POST_OUT
 
-To understand more about POST_OUT read the [official writeup](https://swarm.ptsecurity.com/xbox-360-security-in-details-the-long-way-to-rgh3/). But for now just note the state of it.
+POST_OUT is used to observe the CPU’s boot progress. In the context of RGH installs, it is important because the glitch timing depends on knowing where the CPU is during the boot sequence.
+
 
 ![post_out_types](/img/xbox360/post_out_types.png)
 
@@ -79,8 +109,9 @@ R2C6 & R2C7 are missing:
 
 ![resistors_missing](/img/xbox360/resistors_missing.jpg)
 
-**HOWEVER THIS CAN BE IGNORED IF ONLY THE 2 ARE MISSING, SAID IN MRMARIO SLIM CORONA MOD VIDEO. (IT WORKED WITHOUT IT ;))**
+Based on the guide and MrMario’s Corona video, this specific case did not require bridging, because only those two were missing.
 
+I left them as-is, and the final install worked without bridging.
 
 ### Corona, Waitsburg, Stringra ?
 
@@ -106,7 +137,7 @@ Multiple evidences suggest that my XBOX 360 S is a **Corona v4** with the follow
 
 - Motherboard type: Waitsburg
 - 4GB NAND
-- No POST_POUT
+- No POST_OUT
 
 ## Preparation and soldering
 
@@ -114,19 +145,23 @@ All of the necessary points in the guide were cleaned, tinned and soldered to:
 
 ### PLL:
 
-**VERY IMPORTANT! BETWEEN THE TWO PLL POINTS I HAD TO INSTALL A 1K RESISTOR BASED ON THE GUIDE! SRY I DON'T HAVE PICTURES :(** (Put a heat shrinking tube on it and kapton taped it down.)
+The PLL point is part of the glitching path used by RGH3. The via had to be carefully scraped off before soldering.
 
-Note that the via had to be scraped off just a very little to expose the soldier point.
+A 1k resistor was installed between the required PLL-related points according to the guide. I covered the resistor with heat shrinking tube and secured the wiring with Kapton tape.
+
+Unfortunately, I did not take a photo of the resistor installation, but it was included in the final working setup.
 
 ![alt text](/img/xbox360/PLL.jpg)
 
 ### SMC_POST1 and SMC_PLL:
 
+The SMC-related points are used because RGH3 relies on the console’s own SMC instead of an external glitch chip.
+
 ![alt text](/img/xbox360/smc_post_and_pll.jpg)
 
 ### POST fix adapter
 
-POST1 is connected to the post fix adapter. I ordered the adapter from good old [AliExpress](https://www.aliexpress.com/item/1005006147786174.html). The adapter has to go around the cpu making contact with the springy pin.
+POST1 is connected to the post fix adapter. I ordered the adapter from [AliExpress](https://www.aliexpress.com/item/1005006147786174.html). The adapter has to go around the cpu making contact with the springy pin.
 
 ![postfix_adapter](/img/xbox360/postfix_adapter.jpg)
 
@@ -164,7 +199,7 @@ The next step was to load up [J-runner](https://github.com/Octal450/J-Runner-wit
 
 **J-runner discovered the Pico, I was able to read the NAND and Write [XeLL](https://consolemods.org/wiki/Xbox_360:XeLL)**. At this point I needed to plug in a TV and try to boot into XeLL. Well I couldn't. **Nothing happened, blank screen**.
 
-So the long debugging session started and went on for a lot of days, questing not even the smallest details but my existence as well...
+So the long debugging session started and went on for a lot of days, questing even the smallest details.
 
 I did hardware level debugging, checked the joints, soldering, the video cabel (I was using RCA->EUROSCART at that point). I de-soldered everything and redid the wiring, now **I couldn't even read the NAND anymore**. Gladly I had the original dump.
 
