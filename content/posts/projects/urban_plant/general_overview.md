@@ -1,5 +1,5 @@
 +++
-date = '2026-05-05T20:02:11+02:00'
+date = '2026-05-11T20:02:11+02:00'
 draft = false
 title = 'Building an IoT Data Pipeline for Balcony Gardening with ESP32, Flask, Docker and Data Analysis'
 summary = "TODO"
