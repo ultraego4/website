@@ -20,7 +20,7 @@ The goal of this project is to collect environmental data before planting, choos
 
 ## System overview
 
-![system_overview.png](/img/urban_plant/system_overview2.png)
+![system_overview.png](/img/urban_plant/system_overview.png)
 
 The 2 main sensors used are the [VEML7700](https://www.vishay.com/docs/84286/veml7700.pdf) and the [BME280](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf). The VEML7700 measures the ambient light and the BME280 the temperature, humidity and pressure.
 
