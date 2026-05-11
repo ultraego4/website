@@ -1,7 +1,7 @@
 +++
 date = '2026-05-05T20:02:11+02:00'
 draft = false
-title = 'Building an IoT Data Pipeline for Balcony Gardening with ESP32, Flask, Docker and Data Analysis"'
+title = 'Building an IoT Data Pipeline for Balcony Gardening with ESP32, Flask, Docker and Data Analysis'
 summary = "TODO"
 tags=["plants","esp32","flask","python","docker"]
 categories=["Projects", "Embedded"]
