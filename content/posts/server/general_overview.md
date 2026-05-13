@@ -26,7 +26,7 @@ Initially I thought through the goal of my server, what services I would like to
 
 The hardware to work with was the following:
 
-- PSU TODO
+- Approx APP500PS PSU
 - [MSI BAZOOKA B250M motherboard](https://storage-asset.msi.com/datasheet/mb/global/B250M-BAZOOKA.pdf)
   - M-ATX Form Factor
   - Main memory:
@@ -44,7 +44,7 @@ The hardware to work with was the following:
 - [Intel i3-6100 (4) @ 3.700GHz](https://www.intel.com/content/www/us/en/products/sku/90729/intel-core-i36100-processor-3m-cache-3-70-ghz/specifications.html)
 - Intel® HD Graphics 530 Integrated GPU
 - [Nvidia GeForce GTX 950](https://www.techpowerup.com/gpu-specs/gigabyte-gtx-950.b3470)
-- 1TB HDD TODO brand
+- Toshiba 3.5 1TB 7200rpm 32MB SATA3 (DT01ACA100)
 - Samsung 980 500GB NVMe M.2. SSD
 - Optical disk drive
 - StarTech.com PCIe Firewire card PEX1394A2V2
@@ -55,9 +55,9 @@ Since I did not plan to use AI related programs, video editing etc, it was obvio
 
 ## Power management
 
-Power management was an important part of the home server setup, because the machine is expected to run continuously. Since the server was built from an old desktop PC, reducing idle power consumption was more important than maximizing peak performance.
+Power management was the most important part of the home server setup, because the machine will be running continuously. Since the server was built from an old desktop PC, reducing idle power consumption was more important than maximizing performance.
 
-The goal was not to make the system extremely low power, but to make sure that the hardware can enter efficient idle states when it is not doing anything useful.
+The goal was not to make the system enter efficient idle states when it is not doing anything useful.
 
 ### Achieving low package C-states
 
@@ -70,27 +70,30 @@ This optimization can be approached on two levels:
 1. **Software configuration**
 2. **Hardware and firmware behavior**
 
-For the software side, booting a live Ubuntu system is a useful first step. A clean live system makes it easier to check whether the CPU can reach low package C-states without interference from the installed operating system, Docker containers, background services, or custom configuration. Tools such as `powertop` can be used to observe which idle states are being reached.
+For the software side, booting a live Ubuntu system is a useful first step. A clean live system makes it easier to check whether the CPU can reach low package C-states without interference from the installed operating system, Docker containers, background services, or custom configuration. Tools such as ```powertop``` can be used to observe which idle states are being reached.
 
 ![powertop](/img/home_server/powertop.png)
 
-If the system can reach low package C-states in the live environment, then the issue is probably caused by the installed OS, services, drivers, or configuration. If it still cannot reach deeper idle states, then the hardware and firmware need to be investigated.
+If the system can reach low package C-states in the live environment, then the issue is probably caused by the installed OS, services, drivers, or configuration. If it still cannot reach deeper idle states, then the hardware and firmware is most likely the issue.
 
-In my case, this became a longer debugging process than expected. I first configured the BIOS power management settings and removed or disabled anything that was not necessary for the server. The goal was to reduce the system to only the components required for operation.
+In my case, this became a longer debugging process than expected. I first configured the BIOS power management settings and removed or disabled anything that was not necessary for the server. The goal was to reduce the system to only the components required for operation. Turning of features one by one which I did not need.
 
-After testing, I found that the integrated network card was preventing the system from reaching deeper idle states. To work around this, I disabled the integrated network card and replaced it with a 1 Gbit/s USB-to-Ethernet adapter. This solved the network-related power management issue while still providing enough bandwidth for my home server use case.
+After testing, I found that the integrated network card was preventing the system from reaching deeper idle states. To hack my way around this, I disabled the integrated network card and replaced it with a 1 Gbit/s USB-to-Ethernet adapter.
 
-The FireWire expansion card also caused problems, so it was removed as well. This showed that the issue was not only related to the operating system, but also to the hardware attached to the system.
+The FireWire expansion card also caused problems, so it was removed as well.
 
-One important feature in this area is **Active State Power Management** (**ASPM**). ASPM allows PCIe devices and PCIe links to reduce power usage when they are idle. On budget desktop hardware, this is not always implemented well. Even if the CPU supports deep idle states, poor firmware support or badly behaving PCIe devices can keep parts of the platform active, preventing the CPU package from entering lower C-states.
+One important feature in this area is **Active State Power Management** (**ASPM**). ASPM allows PCIe devices and PCIe links to reduce power usage when they are idle. On budget desktop hardware, this is not always implemented well (I had an additional 1 TB HDD (2TB in total), but this one did not support ASPM). Even if the CPU supports deep idle states, poor firmware support or badly behaving PCIe devices can keep parts of the platform active, preventing the CPU package from entering lower C-states.
 
-Because of this, achieving low package C-states required a combination of BIOS configuration, hardware removal, and software-side verification. For a machine that runs continuously, this is worth the effort, because even a small reduction in idle power consumption becomes significant over time.
 
 ### Measuring power consumption
 
-To verify the effect of these changes, I used a **Shelly Plug S** to monitor the server's power consumption. I flashed **Tasmota** on the plug using OTA flashing, which allowed me to monitor the power usage locally.
+To verify the effect of these changes, I used a **Shelly Plug S** to monitor the server's power consumption. I flashed [**Tasmota**](https://tasmota.github.io/docs/) on the plug using OTA, which is a open-source firmware for ESP devices.
 
-This was useful because it made the optimization process measurable. Instead of only relying on software tools such as `powertop`, I could also see the real power draw of the entire system at the wall. This helped confirm whether BIOS changes, hardware removal, HDD spin-down, or service changes had an actual effect on power consumption.
+This was useful to actually measure whats going on instead of only relying on ```powertop```. I could see the real power draw of the entire system at the wall. This helped confirm whether BIOS changes, hardware removal, HDD spin-down, or service changes had an actual effect on power consumption.
+
+![alt text](/img/home_server/tasmota.png)
+
+(*under load*)
 
 ### HDD spin-down and storage layout
 
@@ -98,9 +101,9 @@ The server uses both SSDs and HDDs. The SSD is used for the operating system, Do
 
 I configured software RAID using two HDDs. Since these disks are not needed all the time, I wanted them to spin down when they are idle in order to reduce power consumption and noise. However, they did not spin down automatically as expected, so I wrote a `systemd` service/script to handle HDD spin-down manually.
 
-This introduced another issue: the HDDs kept spinning up unexpectedly. After debugging, I found that some Docker-related files and services were still stored on the HDDs. This meant that even small background activity from containers could access the disks and wake them up.
+This introduced another issue: the HDDs kept spinning up unexpectedly. After debugging, I found that some Docker-related files and services were still stored on the HDDs.
 
-To investigate this, I used a Linux block device monitoring tool to check which processes were accessing the disks. This helped identify which services were touching the HDDs. After finding the cause, I moved the Docker container files and other frequently accessed data to the SSD.
+To investigate this, I used ```blktrace``` to check which processes were accessing the disks. This helped identify which services were touching the HDDs. After finding the cause, I moved the Docker container files and other frequently accessed data to the SSD.
 
 This separation made the storage layout much more sensible:
 
@@ -113,18 +116,44 @@ After this change, the HDDs could stay spun down for longer periods when not in 
 
 The server runs **Debian Linux** in a headless setup, without a desktop environment.
 
-Debian was chosen as the base system because it fits well with the purpose of the machine: a simple, stable host for running Docker containers and background services. Since the server is managed remotely over the network, there was no need for a graphical interface. Removing the desktop environment also keeps the system lighter and reduces unnecessary resource usage.
+Debian was chosen as the base system because its stable. Since the server is managed only remotely through SSH, there was no need for a gui. Removing the desktop environment also keeps the system lighter and reduces unnecessary resource usage.
 
 
-## Why Docker instead of VMs or Proxmox
+## Why Docker
 
+All services on the server run inside Docker containers and are managed using Docker Compose.
 
+I considered using virtual machines or a Proxmox-based setup, but the server is built from an old desktop PC and, running multiple full virtual machines would not be possible.
 
-## References
+I also looked into LXC containers, but Docker Compose felt like the easiest and most practical solution.
 
-### Reference category 1
+## Services
 
-- Reference 1
-- Reference 2
+The server currently runs multiple self-hosted services, all managed through Docker Compose. Each service has its own container configuration.
 
-### Reference category 2
+The currently running services are:
+
+| Service | Purpose |
+|---|---|
+| **Baikal** | CalDAV/CardDAV server for calendars and contacts. |
+| **Glances** | System monitoring. |
+| **Home Assistant** | Smart home automation. |
+| **Homebox** | Home inventory and asset tracking. |
+| **Homer** | Dashboard for accessing the server services. |
+| **Jellyfin** | Media server for films, series, and other media. |
+| **Kanboard** | Project and task management. |
+| **Mealie** | Recipe management and meal planning. |
+| **qBittorrent-nox** | Web-based torrent client. |
+| **Syncthing** | File synchronization between devices. |
+| **WireGuard** | VPN access to the home network. |
+| **urban_plant** | Custom Docker container for the plant monitoring project. |
+
+## Closing thoughts
+
+This server started as an old gaming PC that was just sitting unused, and slowly turned into something I actually use daily.
+
+The services themselves were not the hardest part. Most of that was done by reading the documentation, copying/modifying the Docker Compose files, and fixing the small config problems. 
+
+The more interesting part was making the hardware behave in the most efficient way by removing unnecessary parts, debugging the C-states, measuring the power consumption, dealing with HDD spin-down.
+
+This is a very minimal server setup, most services are accessed through local IP addresses, and I do not expose them directly to the internet. The remote access is handled through WireGuard, which is enough for me.
