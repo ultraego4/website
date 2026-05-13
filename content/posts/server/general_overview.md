@@ -3,9 +3,9 @@ date = '2026-05-11T11:54:35+02:00'
 draft = false
 title = 'Turning my Old Desktop PC into a Docker-Based Home Server'
 summary = "TODO"
-tags=["TODO"]
-categories=["TODO"]
-slug="TODO"
+tags=[]
+categories=["Home Server"]
+slug="home_server_overview"
 +++
 
 ## Motivation
