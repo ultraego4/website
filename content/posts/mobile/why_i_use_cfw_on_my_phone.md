@@ -1,12 +1,13 @@
 +++
-date = '2026-05-11T11:48:11+02:00'
+date = '2026-05-14T18:18:13+02:00'
 draft = true
-title = 'Why_i_use_a_degoogled_phone'
+title = 'Why I Use a DeGoogled, Rooted Phone with Custom Firmware'
 summary = "TODO"
 tags=["TODO"]
 categories=["TODO"]
 slug="TODO"
 +++
+
 
 
 customfirmware
@@ -31,7 +32,6 @@ explain hard times
 explain switching to a sony xperia z1 compact.
 - write about the size
 - the android version
-
 
 ## Chapter 2 
 
