@@ -9,6 +9,7 @@ slug="TODO"
 +++
 
 
+## What is a custom firmware?
 
 customfirmware
 - what is a custom firwmare
